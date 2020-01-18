@@ -36,7 +36,7 @@ class CashRegister
     if self.totals.empty?
       self.total= 0.0 
     else
-      self.total = self.assert_not_equal.last
+      self.total = self.totals.last
     end
   end 
 

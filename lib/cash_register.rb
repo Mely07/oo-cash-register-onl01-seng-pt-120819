@@ -2,6 +2,7 @@ class CashRegister
   attr_accessor :discount, :total, :quantity, :totals
   
   
+  
   def initialize(discount=0) #makes disount optional
     @total = 0 
     @discount = discount

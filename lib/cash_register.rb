@@ -1,5 +1,5 @@
 class CashRegister
-  attr_accessor :discount, :total, :quantity, :totals
+  attr_accessor :discount, :total, :quantity, :totals, :items
   
   def initialize(discount=0) #makes disount optional
     @total = 0 
@@ -8,17 +8,18 @@ class CashRegister
     @totals = []
   end
   
+  
   def add_item(title, price, quantity=1)
-    self.total += price * quantity
-    #self.quantity = quantity
+    self.total += price * quantity #doesn't forget about previous total 
     
     while quantity > 0 
-      @items << title
+      self.items << title
       quantity -= 1
     end
     
-    @totals << @total
+    self.totals << self.total
   end
+  
   
   def apply_discount 
     if self.discount == 0
@@ -30,16 +31,13 @@ class CashRegister
     end
   end
   
-  def items
-    @items  
-  end
   
   def void_last_transaction
-    @totals.pop
-    if @totals.empty?
-      @total= 0.0 
+    self.totals.pop
+    if self.totals.empty?
+      self.total= 0.0 
     else
-      @total = @totals.last
+      self.total = self.totals.last
     end
   end 
 

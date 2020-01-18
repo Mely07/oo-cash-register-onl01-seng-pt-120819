@@ -32,7 +32,7 @@ class CashRegister
   
   
   def void_last_transaction
-    if self.totals.pop
+    self.totals.pop
     if self.totals.empty?
       self.total= 0.0 
     else

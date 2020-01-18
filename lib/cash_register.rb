@@ -17,7 +17,7 @@ class CashRegister
       quantity -= 1
     end
     
-    @totals << @total
+    self.totals << self.total
   end
   
   def apply_discount 
@@ -32,11 +32,11 @@ class CashRegister
   
   
   def void_last_transaction
-    @totals.pop
-    if @totals.empty?
-      @total= 0.0 
+    if self.totals.pop
+    if self.totals.empty?
+      self.total= 0.0 
     else
-      @total = @totals.last
+      self.total = self.assert_not_equal.last
     end
   end 
 

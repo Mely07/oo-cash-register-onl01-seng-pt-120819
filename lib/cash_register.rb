@@ -1,7 +1,7 @@
 class CashRegister
   attr_accessor :discount, :total, :quantity, :totals
   
-  @@items = []
+  @items = []
   
   def initialize(discount=0) #makes disount optional
     @total = 0 
@@ -13,7 +13,7 @@ class CashRegister
     self.total += price * quantity
     
     while quantity > 0 
-      @@items << title
+      @items << title
       quantity -= 1
     end
     
@@ -31,7 +31,7 @@ class CashRegister
   end
   
   def items
-    @@items  
+    @items  
   end
   
   def void_last_transaction
